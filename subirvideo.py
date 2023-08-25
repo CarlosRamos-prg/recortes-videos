@@ -3,7 +3,7 @@ import numpy as np
 import pyautogui
 
 # Cargar la imagen que deseas buscar
-imagen_a_buscar = cv2.imread('Captura.PNG')
+imagen_a_buscar = cv2.imread('imagen_objetivo.JPG')
 
 while True:
     # Capturar una captura de pantalla
