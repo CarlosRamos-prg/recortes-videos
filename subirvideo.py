@@ -1,11 +1,16 @@
 import cv2
 import numpy as np
 import pyautogui
+import time
 
 # Cargar la imagen que deseas buscar
 imagen_a_buscar = cv2.imread('imagen_objetivo.JPG')
 
-#while True:
+contador=0
+
+while True:
+
+    contador=contador+1
     # Capturar una captura de pantalla
     captura = pyautogui.screenshot()
 
@@ -27,11 +32,16 @@ imagen_a_buscar = cv2.imread('imagen_objetivo.JPG')
     # Mostrar la captura con el rectángulo dibujado (ventana más pequeña)
     ventana_pequeña = cv2.resize(captura_np, (800, 600))
 
-    # Mostrar la captura con el rectángulo dibujado
-    cv2.imshow('Resultado', ventana_pequeña)
+    if(contador==1 or contador==2):
+        # Mostrar la captura con el rectángulo dibujado
+        cv2.imshow('Resultado', ventana_pequeña)
+
+    print("Esperando 3 segundos...")
+    time.sleep(3)  # Espera durante 3 segundos
+    print("¡Han pasado 3 segundos!")
 
     # Romper el bucle si se presiona la tecla 'q'
     if cv2.waitKey(1) == ord('q'):
         break
 
-#cv2.destroyAllWindows()
+cv2.destroyAllWindows()
